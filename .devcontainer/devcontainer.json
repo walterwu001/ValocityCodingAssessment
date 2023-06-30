@@ -1,0 +1,24 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.128.0/containers/dotnetcore
+{
+	"name": "C# (.NET Core)",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"eamodio.gitlens",
+				"ms-dotnettools.csharp",
+				"yzhang.markdown-all-in-one",
+				"streetsidesoftware.code-spell-checker",
+				"ms-azuretools.vscode-docker",
+				"exiasr.hadolint",
+				"spencer-farley.xunitsnippets",
+				"formulahendry.dotnet-test-explorer",
+				"svipas.prettier-plus"
+			]
+		}
+	},
+	"remoteUser": "vscode"
+}

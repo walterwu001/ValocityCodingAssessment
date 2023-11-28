@@ -74,9 +74,9 @@ namespace CodingAssessment.Refactor
         {
             if (lastName.Contains("test"))
                 return p.Name;
-            if ((p.Name.Length + lastName).Length > 255)
+            if ((p.Name + " " + lastName).Length > 255)
             {
-                (p.Name + " " + lastName).Substring(0, 255);
+               return (p.Name + " " + lastName).Substring(0, 255);
             }
 
             return p.Name + " " + lastName;

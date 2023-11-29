@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CodingAssessment.Refactor
+namespace CodingAssessment.ReFactor
 {
     public class BirthingUnit
     {
-        /// <summary>
-        /// MaxItemsToRetrieve
-        /// </summary>
         private readonly List<Person> _persons = new();
 
         /// <summary>
         /// GetPersons
         /// </summary>
         /// <param name="count"></param>
-        /// <returns>List<object></returns>
+        /// <returns>List&lt;Person&gt;</returns>
         public List<Person> GetPersons(int count)
         {
             var random = new Random();
@@ -34,6 +31,11 @@ namespace CodingAssessment.Refactor
             return newPersons;
         }
 
+        /// <summary>
+        /// GetBobs
+        /// </summary>
+        /// <param name="olderThan30"></param>
+        /// <returns>IEnumerable&lt;Person&gt;</returns>
         private IEnumerable<Person> GetBobs(bool olderThan30)
         {
             var bobs = _persons.Where(x => x.Name == "Bob");
@@ -47,6 +49,12 @@ namespace CodingAssessment.Refactor
             return bobs;
         }
 
+        /// <summary>
+        /// GetMarried
+        /// </summary>
+        /// <param name="person"></param>
+        /// <param name="lastName"></param>
+        /// <returns>string</returns>
         public string GetMarried(Person person, string lastName)
         {
             if (lastName.Contains("test"))

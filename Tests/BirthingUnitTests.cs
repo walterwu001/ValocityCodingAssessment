@@ -1,5 +1,5 @@
 ﻿using Xunit;
-using CodingAssessment.Refactor;
+using CodingAssessment.ReFactor;
 using System.Reflection;
 
 namespace CodingAssessment.Tests

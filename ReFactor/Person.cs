@@ -1,18 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace CodingAssessment.Refactor
+namespace CodingAssessment.ReFactor
 {
     public class Person
     {
         private const int Under16Years = 15;
-        private static readonly DateTimeOffset DefaultDOB = DateTimeOffset.UtcNow.AddYears(-Under16Years);
+        private static readonly DateTimeOffset DefaultDateOfBirth = DateTimeOffset.UtcNow.AddYears(-Under16Years);
         public string Name { get; private set; }
         public DateTimeOffset DateOfBirth { get; private set; }
-        public Person(string name) : this(name, DefaultDOB.Date)
+
+        /// <summary>
+        /// Person
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>Person</returns>
+        public Person(string name) : this(name, DefaultDateOfBirth.Date)
         {
         }
+
+        /// <summary>
+        /// Person
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="dateOfBirth"></param>
+        /// <returns>Person</returns>
         public Person(string name, DateTime dateOfBirth)
         {
             ValidateName(name);
@@ -21,6 +32,11 @@ namespace CodingAssessment.Refactor
             DateOfBirth = dateOfBirth;
         }
 
+        /// <summary>
+        /// ValidateName
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>void</returns>
         private void ValidateName(string name)
         {
             if (string.IsNullOrWhiteSpace(name))

@@ -1,4 +1,4 @@
-﻿using CodingAssessment.Refactor;
+﻿using CodingAssessment.ReFactor;
 using Xunit;
 
 namespace CodingAssessment.Tests
@@ -20,18 +20,18 @@ namespace CodingAssessment.Tests
         }
 
         [Fact]
-        public void CreatePeopleWithNameAndDOB()
+        public void CreatePeopleWithNameAndDateOfBirth()
         {
             // Arrange
             string testName = "Alice";
-            DateTime testDOB = new DateTime(1990, 5, 15);
+            DateTime testDateOfBirth = new DateTime(1990, 5, 15);
 
             // Act
-            var person = new Person(testName, testDOB);
+            var person = new Person(testName, testDateOfBirth);
 
             // Assert
             Assert.Equal(testName, person.Name);
-            Assert.Equal(testDOB.Date, person.DateOfBirth.Date);
+            Assert.Equal(testDateOfBirth.Date, person.DateOfBirth.Date);
         }
 
         [Fact]
@@ -39,13 +39,13 @@ namespace CodingAssessment.Tests
         {
             // Arrange
             string testName = "Bob";
-            DateTimeOffset expectedDOB = DateTimeOffset.UtcNow.AddYears(-15).Date;
+            DateTimeOffset expectedDateOfBirth = DateTimeOffset.UtcNow.AddYears(-15).Date;
 
             // Act
             var person = new Person(testName);
 
             // Assert
-            Assert.Equal(expectedDOB, person.DateOfBirth);
+            Assert.Equal(expectedDateOfBirth, person.DateOfBirth);
         }
     }
 }

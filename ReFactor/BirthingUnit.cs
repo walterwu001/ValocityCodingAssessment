@@ -53,16 +53,21 @@ namespace CodingAssessment.Refactor
             return olderThan30 ? _persons.Where(x => x.Name == "Bob" && x.DateOfBirth >= DateTime.Now.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _persons.Where(x => x.Name == "Bob");
         }
 
-        public string GetMarried(Person p, string lastName)
+        public string GetMarried(Person person, string lastName)
         {
             if (lastName.Contains("test"))
-                return p.Name;
-            if ((p.Name + " " + lastName).Length > 255)
             {
-               return (p.Name + " " + lastName).Substring(0, 255);
+                return person.Name;
             }
 
-            return p.Name + " " + lastName;
+            string fullName = $"{person.Name} {lastName}";
+
+            if (fullName.Length > 255)
+            {
+                return fullName.Substring(0, 255);
+            }
+
+            return fullName;
         }
     }
 }

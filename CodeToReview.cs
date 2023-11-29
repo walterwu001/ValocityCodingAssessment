@@ -64,6 +64,10 @@ namespace Utility.Valocity.ProfileHelper
             return olderThan30 ? _people.Where(x => x.Name == "Bob" && x.DOB >= DateTime.Now.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _people.Where(x => x.Name == "Bob");
         }
 
+        /*
+         1. Might consolidate the concatenation into a fullName variable for better code clarity.
+         2. Might simplify the length check by directly applying it to the fullName variable.
+        */
         public string GetMarried(People p, string lastName)
         {
             if (lastName.Contains("test"))

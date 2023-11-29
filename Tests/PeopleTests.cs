@@ -1,7 +1,7 @@
-﻿using CodingAssessment.ReFactor;
+﻿using ReFactor;
 using Xunit;
 
-namespace CodingAssessment.Tests
+namespace Tests
 {
     public class PeopleTests
     {

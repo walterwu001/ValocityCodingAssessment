@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CodingAssessment.ReFactor
+namespace ReFactor
 {
     public class BirthingUnit
     {
@@ -64,12 +64,7 @@ namespace CodingAssessment.ReFactor
 
             string fullName = $"{person.Name} {lastName}";
 
-            if (fullName.Length > 255)
-            {
-                return fullName.Substring(0, 255);
-            }
-
-            return fullName;
+            return fullName.Length > 255 ? fullName.Substring(0, 255) : fullName;
         }
     }
 }

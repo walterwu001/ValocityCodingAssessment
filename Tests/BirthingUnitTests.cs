@@ -1,8 +1,8 @@
 ﻿using Xunit;
-using CodingAssessment.ReFactor;
+using ReFactor;
 using System.Reflection;
 
-namespace CodingAssessment.Tests
+namespace Tests
 {
     public class BirthingUnitTests
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CodingAssessment.ReFactor
+namespace ReFactor
 {
     public class Person
     {
@@ -37,7 +37,7 @@ namespace CodingAssessment.ReFactor
         /// </summary>
         /// <param name="name"></param>
         /// <returns>void</returns>
-        private void ValidateName(string name)
+        private static void ValidateName(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
             {

@@ -47,7 +47,7 @@ namespace CodingAssessment.Tests
 
             // Assert
             Assert.All(peopleList, p => {
-                int age = currentDate.Year - p.DOB.Year;
+                int age = currentDate.Year - p.DateOfBirth.Year;
                 Assert.True(age >= 18 && age <= 85);
             });
         }
@@ -64,8 +64,8 @@ namespace CodingAssessment.Tests
             // Act
             if (getBobsMethod != null)
             {
-                var resultOlderThan30 = getBobsMethod.Invoke(birthingUnit, new object[] { true }) as IEnumerable<People>;
-                var resultNotOlderThan30 = getBobsMethod.Invoke(birthingUnit, new object[] { false }) as IEnumerable<People>;
+                var resultOlderThan30 = getBobsMethod.Invoke(birthingUnit, new object[] { true }) as IEnumerable<Person>;
+                var resultNotOlderThan30 = getBobsMethod.Invoke(birthingUnit, new object[] { false }) as IEnumerable<Person>;
                 // Assert
                 Assert.NotNull(resultOlderThan30);
                 Assert.NotNull(resultNotOlderThan30);
@@ -77,7 +77,7 @@ namespace CodingAssessment.Tests
         {
             // Arrange
             var birthingUnit = new BirthingUnit();
-            var person = new People("Alice");
+            var person = new Person("Alice");
 
             // Act
             var result = birthingUnit.GetMarried(person, "test");
@@ -91,7 +91,7 @@ namespace CodingAssessment.Tests
         {
             // Arrange
             var birthingUnit = new BirthingUnit();
-            var person = new People("Jane");
+            var person = new Person("Jane");
 
             // Act
             var result = birthingUnit.GetMarried(person, "Doe");
@@ -105,7 +105,7 @@ namespace CodingAssessment.Tests
         {
             // Arrange
             var birthingUnit = new BirthingUnit();
-            var person = new People("Alice");
+            var person = new Person("Alice");
 
             // Act
             var result = birthingUnit.GetMarried(person, new string('X', 250));
@@ -119,7 +119,7 @@ namespace CodingAssessment.Tests
         {
             // Arrange
             var birthingUnit = new BirthingUnit();
-            var person = new People("Chris");
+            var person = new Person("Chris");
 
             // Act
             var result = birthingUnit.GetMarried(person, new string('X', 249));

@@ -12,11 +12,11 @@ namespace CodingAssessment.Tests
             string testName = "John";
 
             // Act
-            var person = new People(testName);
+            var person = new Person(testName);
 
             // Assert
             Assert.Equal(testName, person.Name);
-            Assert.True(person.DOB <= DateTimeOffset.UtcNow.Date);
+            Assert.True(person.DateOfBirth <= DateTimeOffset.UtcNow.Date);
         }
 
         [Fact]
@@ -27,11 +27,11 @@ namespace CodingAssessment.Tests
             DateTime testDOB = new DateTime(1990, 5, 15);
 
             // Act
-            var person = new People(testName, testDOB);
+            var person = new Person(testName, testDOB);
 
             // Assert
             Assert.Equal(testName, person.Name);
-            Assert.Equal(testDOB.Date, person.DOB.Date);
+            Assert.Equal(testDOB.Date, person.DateOfBirth.Date);
         }
 
         [Fact]
@@ -42,10 +42,10 @@ namespace CodingAssessment.Tests
             DateTimeOffset expectedDOB = DateTimeOffset.UtcNow.AddYears(-15).Date;
 
             // Act
-            var person = new People(testName);
+            var person = new Person(testName);
 
             // Assert
-            Assert.Equal(expectedDOB, person.DOB);
+            Assert.Equal(expectedDOB, person.DateOfBirth);
         }
     }
 }

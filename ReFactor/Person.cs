@@ -6,16 +6,27 @@ namespace CodingAssessment.Refactor
 {
     public class Person
     {
-        private static readonly DateTimeOffset Under16 = DateTimeOffset.UtcNow.AddYears(-15);
+        private const int Under16Years = 15;
+        private static readonly DateTimeOffset DefaultDOB = DateTimeOffset.UtcNow.AddYears(-Under16Years);
         public string Name { get; private set; }
         public DateTimeOffset DateOfBirth { get; private set; }
-        public Person(string name) : this(name, Under16.Date)
+        public Person(string name) : this(name, DefaultDOB.Date)
         {
         }
-        public Person(string name, DateTime dob)
+        public Person(string name, DateTime dateOfBirth)
         {
+            ValidateName(name);
+
             Name = name;
-            DateOfBirth = dob;
+            DateOfBirth = dateOfBirth;
+        }
+
+        private void ValidateName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException("Name cannot be null or empty.", nameof(name));
+            }
         }
     }
 }

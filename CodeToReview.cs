@@ -4,6 +4,13 @@ using System.Linq;
 
 namespace Utility.Valocity.ProfileHelper
 {
+    /*
+     1. Might refactor the class name from "People" to "Person" to follow the standard naming convention.
+     2. Might rename the property "DOB" to "DateOfBirth" for better readability and to adhere to the standard naming convention.
+     3. Might change the Under16 field to Under16Years for better naming clarity.
+     4. Might add a private ValidateName method to handle null or whitespace names.
+     5. Might Use a constant (Under16Years) for the default age to improve readability and maintainability.
+     */
     public class People
     {
      private static readonly DateTimeOffset Under16 = DateTimeOffset.UtcNow.AddYears(-15);
@@ -37,6 +44,7 @@ namespace Utility.Valocity.ProfileHelper
          2. Might create a new list (newPersons) to store the newly created people. 
          3. Might Simplify the random name selection using the ternary operator.
          4. Might remove try catch if it's not happen
+         5. fix the typo error from "dandon" to "random"
          */
         /// <summary>
         /// GetPeoples

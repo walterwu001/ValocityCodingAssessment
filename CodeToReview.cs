@@ -17,6 +17,11 @@ namespace Utility.Valocity.ProfileHelper
 
     public class BirthingUnit
     {
+        /*
+         1. Since _persons is set in the constructor and its reference doesn't change, mark it as readonly to ensure 
+            it's not reassigned accidentally after initialization
+         2. Might consider simplifying the code by removing the empty constructor altogether. 
+         */
         /// <summary>
         /// MaxItemsToRetrieve
         /// </summary>

@@ -9,12 +9,7 @@ namespace CodingAssessment.Refactor
         /// <summary>
         /// MaxItemsToRetrieve
         /// </summary>
-        private List<Person> _persons;
-
-        public BirthingUnit()
-        {
-            _persons = new List<Person>();
-        }
+        private readonly List<Person> _persons = new();
 
         /// <summary>
         /// GetPersons

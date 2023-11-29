@@ -4,6 +4,14 @@ using System.Linq;
 
 namespace Utility.Valocity.ProfileHelper
 {
+    /*
+     1. Might split class to 2 differenct class "Person" and "BirthingUnit"
+     2. Might refactor the class name from "People" to "Person" to follow the standard naming convention.
+     3. Might rename the property "DOB" to "DateOfBirth" for better readability and to adhere to the standard naming convention.
+     4. Might change the Under16 field to Under16Years for better naming clarity.
+     5. Might add a private ValidateName method to handle null or whitespace names.
+     6. Might Use a constant (Under16Years) for the default age to improve readability and maintainability.
+     */
     public class People
     {
      private static readonly DateTimeOffset Under16 = DateTimeOffset.UtcNow.AddYears(-15);
@@ -17,6 +25,11 @@ namespace Utility.Valocity.ProfileHelper
 
     public class BirthingUnit
     {
+        /*
+         1. Since _persons is set in the constructor and its reference doesn't change, mark it as readonly to ensure 
+            it's not reassigned accidentally after initialization
+         2. Might consider simplifying the code by removing the empty constructor altogether. 
+         */
         /// <summary>
         /// MaxItemsToRetrieve
         /// </summary>
@@ -27,6 +40,13 @@ namespace Utility.Valocity.ProfileHelper
             _people = new List<People>();
         }
 
+        /*
+         1. Might Rename the method parameter i to count for clarity.
+         2. Might create a new list (newPersons) to store the newly created people. 
+         3. Might Simplify the random name selection using the ternary operator.
+         4. Might remove try catch if it's not happen
+         5. fix the typo error from "dandon" to "random"
+         */
         /// <summary>
         /// GetPeoples
         /// </summary>
@@ -59,11 +79,19 @@ namespace Utility.Valocity.ProfileHelper
             return _people;
         }
 
+        /*
+         1. Might Extract the initial filter for people named "Bob" to a separate variable (bobs) for better readability and reuse.
+         2. Might compare the date of birth with a calculated time (thirtyYearsAgo) for those older than 30 years.
+        */
         private IEnumerable<People> GetBobs(bool olderThan30)
         {
             return olderThan30 ? _people.Where(x => x.Name == "Bob" && x.DOB >= DateTime.Now.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _people.Where(x => x.Name == "Bob");
         }
 
+        /*
+         1. Might consolidate the concatenation into a fullName variable for better code clarity.
+         2. Might simplify the length check by directly applying it to the fullName variable.
+        */
         public string GetMarried(People p, string lastName)
         {
             if (lastName.Contains("test"))

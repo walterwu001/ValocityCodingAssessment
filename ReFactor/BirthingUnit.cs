@@ -50,7 +50,15 @@ namespace CodingAssessment.Refactor
 
         private IEnumerable<Person> GetBobs(bool olderThan30)
         {
-            return olderThan30 ? _persons.Where(x => x.Name == "Bob" && x.DateOfBirth >= DateTime.Now.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _persons.Where(x => x.Name == "Bob");
+            var bobs = _persons.Where(x => x.Name == "Bob");
+
+            if (olderThan30)
+            {
+                var thirtyYearsAgo = DateTime.UtcNow.AddYears(-30);
+                bobs = bobs.Where(x => x.DateOfBirth <= thirtyYearsAgo);
+            }
+
+            return bobs;
         }
 
         public string GetMarried(Person person, string lastName)

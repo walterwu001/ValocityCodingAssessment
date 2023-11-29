@@ -59,6 +59,11 @@ namespace Utility.Valocity.ProfileHelper
             return _people;
         }
 
+        /*
+         1. Might Extract the initial filter for people named "Bob" to a separate variable (bobs) for better readability and reuse.
+         2. Might compare the date of birth with a calculated time (thirtyYearsAgo) for those older than 30 years.
+        */
+
         private IEnumerable<People> GetBobs(bool olderThan30)
         {
             return olderThan30 ? _people.Where(x => x.Name == "Bob" && x.DOB >= DateTime.Now.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _people.Where(x => x.Name == "Bob");

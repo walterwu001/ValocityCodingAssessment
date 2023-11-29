@@ -3,10 +3,10 @@ using Xunit;
 
 namespace Tests
 {
-    public class PeopleTests
+    public class PersonTests
     {
         [Fact]
-        public void CreatePeopleWithNameOnly()
+        public void CreatePersonWithNameOnly()
         {
             // Arrange
             string testName = "John";
@@ -20,7 +20,7 @@ namespace Tests
         }
 
         [Fact]
-        public void CreatePeopleWithNameAndDateOfBirth()
+        public void CreatePersonWithNameAndDateOfBirth()
         {
             // Arrange
             string testName = "Alice";

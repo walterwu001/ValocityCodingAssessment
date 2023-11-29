@@ -27,6 +27,12 @@ namespace Utility.Valocity.ProfileHelper
             _people = new List<People>();
         }
 
+        /*
+         1. Might Rename the method parameter i to count for clarity.
+         2. Might create a new list (newPersons) to store the newly created people. 
+         3. Might Simplify the random name selection using the ternary operator.
+         4. Might remove try catch if it's not happen
+         */
         /// <summary>
         /// GetPeoples
         /// </summary>
@@ -63,7 +69,6 @@ namespace Utility.Valocity.ProfileHelper
          1. Might Extract the initial filter for people named "Bob" to a separate variable (bobs) for better readability and reuse.
          2. Might compare the date of birth with a calculated time (thirtyYearsAgo) for those older than 30 years.
         */
-
         private IEnumerable<People> GetBobs(bool olderThan30)
         {
             return olderThan30 ? _people.Where(x => x.Name == "Bob" && x.DOB >= DateTime.Now.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _people.Where(x => x.Name == "Bob");

@@ -17,35 +17,26 @@ namespace CodingAssessment.Refactor
         }
 
         /// <summary>
-        /// GetPeoples
+        /// GetPersons
         /// </summary>
-        /// <param name="j"></param>
+        /// <param name="count"></param>
         /// <returns>List<object></returns>
-        public List<Person> GetPeople(int i)
+        public List<Person> GetPersons(int count)
         {
-            for (int j = 0; j < i; j++)
+            var random = new Random();
+            var newPersons = new List<Person>();
+
+            for (int j = 0; j < count; j++)
             {
-                try
-                {
-                    // Creates a dandon Name
-                    string name = string.Empty;
-                    var random = new Random();
-                    if (random.Next(0, 1) == 0) {
-                        name = "Bob";
-                    }
-                    else {
-                        name = "Betty";
-                    }
-                    // Adds new people to the list
-                    _persons.Add(new Person(name, DateTime.UtcNow.Subtract(new TimeSpan(random.Next(18, 85) * 356, 0, 0, 0))));
-                }
-                catch (Exception e)
-                {
-                    // Dont think this should ever happen
-                    throw new Exception("Something failed in user creation");
-                }
+                string name = random.Next(0, 2) == 0 ? "Bob" : "Betty";
+                DateTime dateOfBirth = DateTime.UtcNow.Subtract(TimeSpan.FromDays(random.Next(18 * 365, 85 * 365)));
+
+                var person = new Person(name, dateOfBirth);
+                newPersons.Add(person);
             }
-            return _persons;
+
+            _persons.AddRange(newPersons);
+            return newPersons;
         }
 
         private IEnumerable<Person> GetBobs(bool olderThan30)

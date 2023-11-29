@@ -14,7 +14,7 @@ namespace CodingAssessment.Tests
 
             // Act
             int numberOfPeople = 5;
-            var peopleList = birthingUnit.GetPeople(numberOfPeople);
+            var peopleList = birthingUnit.GetPersons(numberOfPeople);
 
             // Assert
             Assert.Equal(numberOfPeople, peopleList.Count);
@@ -28,7 +28,7 @@ namespace CodingAssessment.Tests
 
             // Act
             int numberOfPeople = 10;
-            var peopleList = birthingUnit.GetPeople(numberOfPeople);
+            var peopleList = birthingUnit.GetPersons(numberOfPeople);
 
             // Assert
             Assert.All(peopleList, p => Assert.True(p.Name == "Bob" || p.Name == "Betty"));
@@ -42,7 +42,7 @@ namespace CodingAssessment.Tests
 
             // Act
             int numberOfPeople = 10;
-            var peopleList = birthingUnit.GetPeople(numberOfPeople);
+            var peopleList = birthingUnit.GetPersons(numberOfPeople);
             var currentDate = DateTimeOffset.UtcNow;
 
             // Assert
@@ -58,7 +58,7 @@ namespace CodingAssessment.Tests
             // Arrange
             var birthingUnit = new BirthingUnit();
             int numberOfPeople = 20;
-            birthingUnit.GetPeople(numberOfPeople);
+            birthingUnit.GetPersons(numberOfPeople);
             var getBobsMethod = typeof(BirthingUnit).GetMethod("GetBobs", BindingFlags.NonPublic | BindingFlags.Instance);
 
             // Act

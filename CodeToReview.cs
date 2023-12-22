@@ -5,7 +5,7 @@ using System.Linq;
 namespace Utility.Valocity.ProfileHelper
 {
     /*
-     1. Might split class to 2 differenct class "Person" and "BirthingUnit"
+     1. TEST... Might split class to 2 differenct class "Person" and "BirthingUnit"
      2. Might refactor the class name from "People" to "Person" to follow the standard naming convention.
      3. Might rename the property "DOB" to "DateOfBirth" for better readability and to adhere to the standard naming convention.
      4. Might change the Under16 field to Under16Years for better naming clarity.
